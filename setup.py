@@ -13,6 +13,6 @@ setup(
     author='',
     author_email='',
     description='Integrating BGE-M3 into Llama-index',
-    python_requires='==3.11.5',
+    python_requires='>=3.11.5',
     install_requires=dependencies
 )
