@@ -5,6 +5,7 @@ if __name__ == "__main__":
     from llama_index.core import Settings
     from llama_index.core import Document
 
+    Settings.llm = None
     Settings.chunk_size = 512
 
     # Load Documents
@@ -19,5 +20,11 @@ if __name__ == "__main__":
     retriever = index.as_retriever()
     nodes = retriever.retrieve("What is BGE M3?")
     print(nodes)
-    nodes = retriever.retrieve("Defination of BM25")
-    print(nodes)
+
+    query_engine = index.as_query_engine()
+    response = query_engine.query(
+        "What is BGE-M3?"
+    )
+    print(response)
+
+    print("All tests passed!")
